@@ -1,0 +1,13 @@
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Place this file in: 
+#         /etc/sudoers.d/
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+# Allowed sudo commands for the webserver, add entries into the iptables firewall 
+www-data ALL = NOPASSWD: /sbin/iptables -I internet 1 -t nat -m mac --mac-source ??\:??\:??\:??\:??\:?? -j RETURN
+www-data ALL = NOPASSWD: /sbin/iptables -D internet -t nat -m mac --mac-source ??\:??\:??\:??\:??\:?? -j RETURN
+www-data ALL = NOPASSWD: /usr/bin/rmtrack [0-9]*.[0-9]*.[0-9]*.[0-9]*
