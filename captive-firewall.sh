@@ -3,8 +3,8 @@
 
 # Configurable variables
 IPTABLES=/sbin/iptables
-VICTIM=172.25.51.106
-ATTACKER=172.25.100.20
+VICTIM=10.5.10.76
+ATTACKER=10.5.10.77
 
 # /usr/local/sbin/iptables
 # Create internet chain and add allow rules
