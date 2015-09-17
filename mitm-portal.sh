@@ -106,6 +106,15 @@ if ! dpkg -s bdfproxy > /dev/null; then
   exit 0
       fi
 fi
+if ! dpkg -s beef-xss > /dev/null; then
+    apt-get update
+   sudo apt-get -y --force-yes install beef-xss
+      if ! dpkg -s beef-xss > /dev/null; then
+        echo -e "Install Failed - Check Internet Connection!"
+  exit 0
+      fi
+fi
+
 
 }
 
@@ -672,6 +681,8 @@ if [ "$half" == "y" -o "$half" == "Y" ]; then
 fi
 #echo $halfdup
 
+#TCPdump
+tcpdump -w $logdir/$fdate.pcap
 
 if [ $attacktype -eq 1 ] || [ $attacktype -eq 2 ]; then
   ##### Captive Portal #####
