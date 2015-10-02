@@ -30,10 +30,12 @@
 #   **  This script calls on other scripts and custom  **     #
 #    **  payloads that may not be readily accessable. **      #
 #           ** EDIT this for _YOUR_ payloads! **              #
+# 															  #
+# 4.1 - Fixed TCPdump 										  #
 #-------------------------------------------------------------#
 
 
-ScriptName="MITM Attack Script Version 4.0"
+ScriptName="MITM Attack Script Version 4.1"
 fdate=`date +%m.%d.%y-%k.%M`
 #DEFINED COLOR SETTINGS
 RED=$(tput setaf 1 && tput bold)
@@ -682,7 +684,7 @@ fi
 #echo $halfdup
 
 #TCPdump
-tcpdump -w $logdir/$fdate.pcap
+xterm -bg blue -fg white -geometry 100x500+100 -T "TCPDump" -e "tcpdump -w $logdir/$fdate.pcap"
 
 if [ $attacktype -eq 1 ] || [ $attacktype -eq 2 ]; then
   ##### Captive Portal #####
