@@ -684,7 +684,7 @@ fi
 #echo $halfdup
 
 #TCPdump
-xterm -bg blue -fg white -geometry 100x500+100 -T "TCPDump" -e "tcpdump -w $logdir/$fdate.pcap"
+xterm -bg blue -fg white -geometry 100x500+100 -T "TCPDump" -e "tcpdump -w $logdir/$fdate.pcap"&
 
 if [ $attacktype -eq 1 ] || [ $attacktype -eq 2 ]; then
   ##### Captive Portal #####
